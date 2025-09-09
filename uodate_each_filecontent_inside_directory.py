@@ -3,7 +3,8 @@
 import os
 from pathlib import Path
 
-root_dir = Path("TEST")
+user_input = input("Enter the root directory path: ")
+root_dir = Path(user_input)
 
 for root, dirs, files in os.walk(root_dir, followlinks=False):
     for name in files:
