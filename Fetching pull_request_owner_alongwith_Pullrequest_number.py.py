@@ -8,8 +8,14 @@ import requests
 # URL to fetch pull requests from the GitHub API
 url = f'https://api.github.com/repos/ainala2610/Python-Repo/pulls'
 
+token = ''
+headers = {
+    'Authorization': f'{token}'                    # Provide the toke here
+    'Accept': 'application/vnd.github.v3+json'
+}
+
 # Make a GET request to fetch pull requests data from the GitHub API
-response = requests.get(url)  # Add headers=headers inside get() for authentication
+response = requests.get(url, headers=headers)  # Add headers=headers inside get() for authentication
 
 # Only if the response is successful
 if response.status_code == 200:
@@ -40,8 +46,8 @@ if response.status_code == 200:
         url2 = f'https://api.github.com/repos/ainala2610/Python-Repo/pulls/{number}'
         response1 = requests.get(url2)
         data2 = response1.json()
-        pullrequest_owner = data2["user"]["login"]
-        print("Pull Request Owner:", pullrequest_owner)
+        pullrequest_owner = data2['user']['login']
+        print(f"The Pull Request {number} has been reaised by :", pullrequest_owner)
 
 else:
     print(f"Failed to fetch data. Status code: {response.status_code}")
