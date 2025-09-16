@@ -8,9 +8,9 @@ import requests
 # URL to fetch pull requests from the GitHub API
 url = f'https://api.github.com/repos/ainala2610/Python-Repo/pulls'
 
-token = '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'
+token = ''
 headers = {
-    'Authorization': f'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'                    # Provide the toke here
+    'Authorization': f'{token}'                    # Provide the toke here
     'Accept' 'application/vnd.github.v3+json'
 }
 
